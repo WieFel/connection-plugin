@@ -18,7 +18,7 @@ function install(editor: NodeEditor) {
     function pointerDown(this: HTMLElement, e: PointerEvent) {
         const flowParams = socketsParams.get(this);
 
-        console.log("PointerEvent type:", e.type);
+        console.log("PointerEvent:", e);
         if(flowParams && e.type === "contextmenu") {
             const { input, output } = flowParams;
 
