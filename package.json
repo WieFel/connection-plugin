@@ -11,7 +11,8 @@
     "prepublishOnly": "npm run build",
     "prebuild": "npm run lint && npm run types",
     "lint": "tsc",
-    "types": "tsc src/index.ts --target es5 --declaration --outDir ./types --downlevelIteration --emitDeclarationOnly"
+    "types": "tsc src/index.ts --target es5 --declaration --outDir ./types --downlevelIteration --emitDeclarationOnly",
+    "prepare": "npm run build"
   },
   "author": "Vitaliy Stoliarov",
   "license": "MIT",
