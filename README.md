@@ -1,3 +1,6 @@
+# What this fork adds
+This fork adds the feature that right clicks on connected input sockets are not treated as left clicks. Thus, a connection is not dropped when right clicking a connected input socket.
+
 Rete connection plugin
 ====
 #### Rete.js plugin
