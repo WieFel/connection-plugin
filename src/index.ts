@@ -1,7 +1,7 @@
-import { NodeEditor } from 'rete';
-import { renderConnection, renderPathData, updateConnection, getMapItemRecursively } from './utils';
-import { Picker } from './picker';
-import { Flow, FlowParams } from './flow';
+import {NodeEditor} from 'rete';
+import {getMapItemRecursively, renderConnection, renderPathData, updateConnection} from './utils';
+import {Picker} from './picker';
+import {Flow, FlowParams} from './flow';
 import './events';
 import './index.sass';
 
@@ -10,17 +10,18 @@ function install(editor: NodeEditor) {
     editor.bind('connectiondrop');
     editor.bind('connectionpick');
     editor.bind('resetconnection');
-    
+
     const picker = new Picker(editor);
     const flow = new Flow(picker);
     const socketsParams = new WeakMap<Element, FlowParams>();
-    
+
     function pointerDown(this: HTMLElement, e: PointerEvent) {
         const flowParams = socketsParams.get(this);
 
-        if(flowParams) {
+        console.log("PointerEvent type:", e.type);
+        if(flowParams && e.type === "contextmenu") {
             const { input, output } = flowParams;
-            
+
             editor.view.container.dispatchEvent(new PointerEvent('pointermove', e));
             e.preventDefault();
             e.stopPropagation();
